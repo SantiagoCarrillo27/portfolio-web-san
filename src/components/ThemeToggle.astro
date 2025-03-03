@@ -1,0 +1,87 @@
+---
+import SunIcon from "./icons/SunnyIcon.astro";
+import MoonIcon from "./icons/MoonIcon.astro";
+
+// const THEMES = ["Light", "Dark"];
+---
+
+<div class="relative ml-1 mr-1">
+  <button
+    id="theme-toggle"
+    class="appearance-none border-none flex cursor-pointer overflow-hidden">
+
+    <div
+      id="sun-icon"
+      class="bg-yellow-300 hover:bg-yellow-500 p-2.5 rounded-lg transition-all duration-300 absolute opacity-100 translate-y-0 z-10 -left-10 -top-5"
+    >
+      <SunIcon class="theme-toggle-icon size-5" />
+    </div>
+    
+    <div
+      id="moon-icon"
+      class="bg-sky-800 hover:bg-sky-900 p-2.5 rounded-lg transition-all duration-300 absolute opacity-0 translate-y-4 z-0 -left-10 -top-5"
+    >
+      <MoonIcon class="theme-toggle-icon size-5" />
+    </div>
+
+  </button>
+
+</div>
+
+<!-- Script para manejar el tema -->
+<script>
+  (() => {
+    const root = document.documentElement; // <html>
+    const storedTheme = localStorage.getItem("theme") as
+      | "light"
+      | "dark"
+      | null;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const theme: "light" | "dark" =
+      storedTheme || (prefersDark ? "dark" : "light");
+
+    // Aplicar el tema antes de renderizar
+    root.classList.toggle("dark", theme === "dark");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButton = document.getElementById("theme-toggle") as HTMLButtonElement | null;
+      const sunIcon = document.getElementById("sun-icon") as HTMLElement | null;
+      const moonIcon = document.getElementById("moon-icon") as HTMLElement | null;
+
+      if (!toggleButton || !sunIcon || !moonIcon) return;
+
+      // Función para cambiar el tema
+      const applyTheme = (newTheme: "light" | "dark") => {
+        localStorage.setItem("theme", newTheme);
+        root.classList.toggle("dark", newTheme === "dark");
+
+        // Animar el cambio de iconos con transición
+        if (newTheme === "dark") {
+          moonIcon.classList.add("opacity-0", "-translate-y-4"); // Luna baja y desaparece
+          moonIcon.classList.remove("opacity-100", "translate-y-0"); // Luna se oculta
+          
+          sunIcon.classList.remove("opacity-0", "translate-y-10"); // Sol sube y aparece
+          sunIcon.classList.add("opacity-100", "translate-y-0"); // Sol visible
+        } else {
+          sunIcon.classList.add("opacity-0", "translate-y-10"); // Sol baja y desaparece
+          sunIcon.classList.remove("opacity-100", "translate-y-0"); // Sol se oculta
+          
+          moonIcon.classList.remove("opacity-0", "translate-y-4"); // Luna sube y aparece
+          moonIcon.classList.add("opacity-100", "translate-y-0"); // Luna visible
+        }
+      };
+
+      applyTheme(theme); // Aplicar el tema correcto al cargar
+
+      // Evento para cambiar el tema con el botón
+      toggleButton.addEventListener("click", () => {
+        const newTheme: "light" | "dark" = root.classList.contains("dark")
+          ? "light"
+          : "dark";
+        applyTheme(newTheme);
+      });
+    });
+  })();
+</script>

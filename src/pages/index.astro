@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLinkUrl from "@components/BaseLinkUrl.astro";
+import GitHub from "@components/icons/GitHub.astro";
+import Layout from "@layouts/Layout.astro";
+import LinkedIn from "@components/icons/LinkedIn.astro";
+import MainSection from "@components/MainSection.astro";
+import SectionContainerBase from "@components/SectionContainerBase.astro";
+import Experience from "@components/Experience.astro";
+import Projects from "@components/Projects.astro";
+import TitleSection from "@components/TitleSection.astro";
+import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Porfolio de Santiago CS - Desarrollador y Programador Web con +2 años de experiencia"
+  description="Contrata a Santiago Carrillo para crear tu aplicación o página web. Programador Web y Desarrollador de Software. Experto en la creación de experiencias web innovadoras y funcionales."
+>
+  <main class="px-5 grow">
+    <SectionContainerBase id="main">
+      <MainSection />
+    </SectionContainerBase>
+
+    <SectionContainerBase id="experience">
+      <TitleSection>
+        Experiencia Laboral <BriefcaseIcon class="size-8"/>
+      </TitleSection>
+      <Experience />
+    </SectionContainerBase>
+
+    <nav class="flex gap-1.5 mt-6">
+      <BaseLinkUrl href="https://www.linkedin.com/in/santiagocarrillo27/">
+        <LinkedIn class="w-5 h-5" /> LinkedIn
+      </BaseLinkUrl>
+
+      <BaseLinkUrl href="https://github.com/SantiagoCarrillo27">
+        <GitHub class="w-5 h-5" /> GitHub
+      </BaseLinkUrl>
+    </nav>
+  </main>
 </Layout>
