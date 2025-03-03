@@ -1,14 +1,12 @@
 ---
-import BaseLinkUrl from "@components/BaseLinkUrl.astro";
-import GitHub from "@components/icons/GitHub.astro";
 import Layout from "@layouts/Layout.astro";
-import LinkedIn from "@components/icons/LinkedIn.astro";
 import MainSection from "@components/MainSection.astro";
 import SectionContainerBase from "@components/SectionContainerBase.astro";
 import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import TitleSection from "@components/TitleSection.astro";
 import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
+import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
 ---
 
 <Layout
@@ -22,19 +20,18 @@ import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 
     <SectionContainerBase id="experience">
       <TitleSection>
-        Experiencia Laboral <BriefcaseIcon class="size-8"/>
+        Experiencia Laboral <BriefcaseIcon class="size-8" />
+  
       </TitleSection>
       <Experience />
     </SectionContainerBase>
 
-    <nav class="flex gap-1.5 mt-6">
-      <BaseLinkUrl href="https://www.linkedin.com/in/santiagocarrillo27/">
-        <LinkedIn class="w-5 h-5" /> LinkedIn
-      </BaseLinkUrl>
+    <SectionContainerBase id="proyectos">
+      <TitleSection>
+        Proyectos  <ProjectsIcon class="size-8" />
+      </TitleSection>
+      <Projects />
+    </SectionContainerBase>
 
-      <BaseLinkUrl href="https://github.com/SantiagoCarrillo27">
-        <GitHub class="w-5 h-5" /> GitHub
-      </BaseLinkUrl>
-    </nav>
   </main>
 </Layout>

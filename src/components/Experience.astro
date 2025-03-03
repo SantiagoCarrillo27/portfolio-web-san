@@ -19,11 +19,11 @@ const EXPERIENCE = [
 ]
 ---
 
-<ol class="relative mt-15">
+<ol class="relative mt-14 mb-20">
   {
-    EXPERIENCE.map((experience) => (
+    EXPERIENCE.map((experience, index) => (
       <li class="">
-        <ExperienceItem {...experience} />
+        <ExperienceItem {...experience} isLatest = {index === 0} />
       </li>
     ))
   }

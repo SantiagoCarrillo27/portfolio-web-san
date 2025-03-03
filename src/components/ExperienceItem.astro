@@ -1,7 +1,7 @@
 ---
-import CalendarIcon from "./icons/CalendarIcon.astro";
-import CompanyIcon from "./icons/CompanyIcon.astro";
-import LinkInline from "./LinkInline.astro";
+import CalendarIcon from "@icons/CalendarIcon.astro";
+import CompanyIcon from "@icons/CompanyIcon.astro";
+import LinkInline from "@components/LinkInline.astro";
 
 interface Props {
   title: string;
@@ -9,27 +9,32 @@ interface Props {
   description: string;
   link?: string;
   date: string;
+  isLatest:boolean;
 }
 
-const { title, company, description, link, date } = Astro.props;
+const { title, company, description, link, date, isLatest } = Astro.props;
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
-  <li class="mb-10 ms-6">
+<ol class="relative border-s left-2 border-gray-400 dark:border-gray-700">
+  <li class="mb-17 ms-6">
     <span
-      class="absolute flex items-center justify-center w-6 h-6 bg-sky-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-yellow-400"
+      class="absolute flex items-center justify-center size-6 bg-sky-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-yellow-400"
     >
       <CalendarIcon class="size-4 text-black/80 dark:text-gray-800" />
     </span>
 
     <h3
-      class="flex items-center mb-1 text-lg font-semibold text-sky-800 dark:text-white"
+      class="flex items-center mb-1 text-lg font-bold text-sky-800 dark:text-white"
     >
       {title}
-      <span
-        class="bg-blue-100 text-sky-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-400 dark:text-slate-950 ms-3"
-        >Último</span
-      >
+      {isLatest && (
+        <span
+          class="bg-blue-100 text-sky-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-400 dark:text-slate-950 ms-3"
+        >
+          Último
+        </span>
+      )}
+      
     </h3>
 
     <span

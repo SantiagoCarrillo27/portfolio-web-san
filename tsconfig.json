@@ -8,6 +8,7 @@
     "paths": {
       "@components/*" : ["src/components/*"],
       "@layouts/*" : ["src/layouts/*"],
+      "@icons/*" : ["src/components/icons/*"],
       // "@lib/*" : ["src/lib/*"], Para librerías para llamadas a APIS Y COSAS ASÍ.
 
 

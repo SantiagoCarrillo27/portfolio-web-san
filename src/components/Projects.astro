@@ -1,8 +1,121 @@
 ---
-import BriefcaseIcon from "./icons/BriefcaseIcon.astro";
+import GitHub from "@icons/GitHub.astro";
+import Link from "@icons/UrlLinkIcon.astro";
+import LinkButton from "@components/LinkBtn.astro";
+import PHP from "./icons/PHPIcon.astro";
+import SASS from "./icons/SassIcon.astro";
+import JAVASCRIPT from "./icons/JavaScriptIcon.astro";
+import ANGULAR from "./icons/AngularIcon.astro";
+import BOOTSTRAP from "./icons/BootstrapIcon.astro";
+import MYSQL from "./icons/MysqlIcon.astro";
+
+const TAGS = {
+  PHP: {
+    name: "PHP",
+    class: "text-black dark:text-white",
+    icon: PHP,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "text-white",
+    icon: ANGULAR,
+  },
+  SASS:{
+    name: "Sass CSS",
+    class:"",
+    icon:SASS,
+  },
+    JAVASCRIPT:{
+    name: "JavaScript",
+    class:"",
+    icon:JAVASCRIPT,
+  },
+  BOOTSTRAP:{
+    name: "Bootstrap",
+    class:"",
+    icon:BOOTSTRAP,
+  },
+  MYSQL:{
+    name: "MySql",
+    class:"",
+    icon:MYSQL,
+  }
+
+};
+const PROJECTS = [
+  {
+    title: "BeautyBook",
+    description:
+      "App web para el agendamiento de citas. Autenticación y confirmación via Email, gestión de servicios, roles de cliente y admin, manejo de horarios y más.  ",
+    link: "https://google.com",
+    image: "/projects/image.webp",
+    tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT,TAGS.MYSQL],
+  },
+  {
+    title: "GifsApp",
+    description:
+      "Plataforma didáctica para la búsqueda de GIFS divertidos y modernos, con filtrado integrado, manejo de sesión, guardado de búsquedas anteriores y más.",
+    link: "https://santiagocarrillo27.github.io/gifsApp/",
+    github:"https://github.com/SantiagoCarrillo27/gifsApp",
+    image: "/projects/appGifs.webp",
+    tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP],
+  },
+];
 ---
 
-<div class="flex items-center gap-x-3">
-    <h2 class="text-3xl font-semibold text-black/80">Experiencia Laboral</h2>
-    <BriefcaseIcon class="size-8 text-black/80"/>
+<div class="flex flex-col gap-12 my-12">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <div class="grip gap-10">
+        <article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
+          <a href={link} class="block">
+            <figure class=" h-full shadow-xl relative rounded-xl overflow-hidden flex bg-sky-100 dark:bg-gray-700/50">
+              <img class=" object-cover rounded-lg duration-500 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7" src={image} alt="Imagen proyecto personal realizado" />
+            </figure>
+          </a>
+
+          <div class="flex flex-col justify-center gap-2">
+
+            <h3 class="font-semibold text-2xl text-black/80 dark:text-white">
+              {title}
+            </h3>
+
+            <p class="text-slate-600 dark:text-slate-300 text-base">{description}</p>
+
+            <div class="flex gap-3 items-center mb-1">
+              {tags.map((tag) => (
+                <span
+                  class={`relative group/tooltip ${tag.class} `}
+                >
+                  <tag.icon class="size-6" />
+                  <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-slate-100 bg-sky-800 dark:bg-yellow-300 dark:text-black before:content-[''] before:absolute before:bg-sky-800 dark:before:bg-yellow-300 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
+                    {tag.name}
+                  </span>
+                  
+                </span>
+              ))}
+            </div>
+
+            <div class="flex justify-start gap-3">
+              <footer class="flex items-end justify-start  gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-4" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+            </div>
+          </div>
+        </article>
+      </div>
+    ))
+  }
 </div>
