@@ -7,13 +7,14 @@ import Projects from "@components/Projects.astro";
 import TitleSection from "@components/TitleSection.astro";
 import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
+import ProjectSecondary from "@components/ProjectSecondary.astro";
 ---
 
 <Layout
   title="Porfolio de Santiago CS - Desarrollador y Programador Web con +2 años de experiencia"
   description="Contrata a Santiago Carrillo para crear tu aplicación o página web. Programador Web y Desarrollador de Software. Experto en la creación de experiencias web innovadoras y funcionales."
 >
-  <main class="px-5 grow">
+  <main class=" px-6 md:px-5 grow">
     <SectionContainerBase id="main">
       <MainSection />
     </SectionContainerBase>
@@ -31,6 +32,10 @@ import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
         Proyectos  <ProjectsIcon class="size-8" />
       </TitleSection>
       <Projects />
+    </SectionContainerBase>
+
+    <SectionContainerBase>
+      <ProjectSecondary/>
     </SectionContainerBase>
 
   </main>

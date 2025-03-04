@@ -1,0 +1,45 @@
+---
+import { OTHER_PROJECTS } from "@util/ProjectsMain";
+import UrlIcon from "./icons/UrlIcon.astro";
+---
+
+{
+  (
+    <div class="grid md:grid-cols-2 gap-5 mb-10">
+      {OTHER_PROJECTS.map(({ title, description, tags, link }, index) => (
+        <a
+          href={link}
+          role="link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`relative hover:[&>span]:opacity-100 shadow-sm hover:scale-103 transition-all duration-300 border border-gray-300 hover:ring-1 hover:ring-sky-200 rounded-xl p-7 flex flex-col justify-around  ${
+            index % 4 === 0 || (index + 1) % 4 === 0
+              ? "col-span-1"
+              : "row-span-4"
+          }`}
+        >
+          <span class="absolute top-4 right-5 opacity-0 transition-opacity duration-600 ease-in-out ">
+            <UrlIcon class="size-6 text-slate-400" />
+          </span>
+
+          <h3 class="text-2xl text-black/80 dark:text-white font-semibold">
+            {title}
+          </h3>
+          <p class="grow py-2 text-slate-600 dark:text-slate-300">
+            {description}
+          </p>
+          <div class="flex gap-3 items-center">
+            {tags.map((tag) => (
+              <span class={`relative group/tooltip ${tag.class}`}>
+                <tag.icon class="size-6" />
+                <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-slate-100 bg-sky-800 dark:bg-yellow-300 dark:text-black before:content-[''] before:absolute before:bg-sky-800 dark:before:bg-yellow-300 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
+                  {tag.name}
+                </span>
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+  )
+}

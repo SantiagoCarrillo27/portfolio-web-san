@@ -2,75 +2,21 @@
 import GitHub from "@icons/GitHub.astro";
 import Link from "@icons/UrlLinkIcon.astro";
 import LinkButton from "@components/LinkBtn.astro";
-import PHP from "./icons/PHPIcon.astro";
-import SASS from "./icons/SassIcon.astro";
-import JAVASCRIPT from "./icons/JavaScriptIcon.astro";
-import ANGULAR from "./icons/AngularIcon.astro";
-import BOOTSTRAP from "./icons/BootstrapIcon.astro";
-import MYSQL from "./icons/MysqlIcon.astro";
 
-const TAGS = {
-  PHP: {
-    name: "PHP",
-    class: "text-black dark:text-white",
-    icon: PHP,
-  },
-  ANGULAR: {
-    name: "Angular",
-    class: "text-white",
-    icon: ANGULAR,
-  },
-  SASS:{
-    name: "Sass CSS",
-    class:"",
-    icon:SASS,
-  },
-    JAVASCRIPT:{
-    name: "JavaScript",
-    class:"",
-    icon:JAVASCRIPT,
-  },
-  BOOTSTRAP:{
-    name: "Bootstrap",
-    class:"",
-    icon:BOOTSTRAP,
-  },
-  MYSQL:{
-    name: "MySql",
-    class:"",
-    icon:MYSQL,
-  }
+// ACA SE ENCUENTRAN LOS PROYECTOS PRINCIPALES Y LOS SECUNDARIOS, SE SEPARA LÓGICA EN UN TS
+import {PROJECTS}  from '@util/ProjectsMain'
 
-};
-const PROJECTS = [
-  {
-    title: "BeautyBook",
-    description:
-      "App web para el agendamiento de citas. Autenticación y confirmación via Email, gestión de servicios, roles de cliente y admin, manejo de horarios y más.  ",
-    link: "https://google.com",
-    image: "/projects/image.webp",
-    tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT,TAGS.MYSQL],
-  },
-  {
-    title: "GifsApp",
-    description:
-      "Plataforma didáctica para la búsqueda de GIFS divertidos y modernos, con filtrado integrado, manejo de sesión, guardado de búsquedas anteriores y más.",
-    link: "https://santiagocarrillo27.github.io/gifsApp/",
-    github:"https://github.com/SantiagoCarrillo27/gifsApp",
-    image: "/projects/appGifs.webp",
-    tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP],
-  },
-];
+
 ---
 
-<div class="flex flex-col gap-12 my-12">
+<div class="flex flex-col gap-12 mt-14 mb-9">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
       <div class="grip gap-10">
         <article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
           <a href={link} class="block">
             <figure class=" h-full shadow-xl relative rounded-xl overflow-hidden flex bg-sky-100 dark:bg-gray-700/50">
-              <img class=" object-cover rounded-lg duration-500 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7" src={image} alt="Imagen proyecto personal realizado" />
+              <img class=" object-cover rounded-lg duration-700 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7" src={image} alt="Imagen proyecto personal realizado" />
             </figure>
           </a>
 
@@ -116,6 +62,9 @@ const PROJECTS = [
           </div>
         </article>
       </div>
+
+
+
     ))
   }
 </div>
