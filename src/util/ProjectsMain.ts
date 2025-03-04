@@ -29,34 +29,30 @@ export const PROJECTS = [
     {
       title: "CountryApp",
       description:
-        "Poder ver la cantidad de población de un país y sus capitales, además de sus banderas",
-      link: "https://santiagocarrillo27.github.io/gifsApp/",
-      github:"https://github.com/SantiagoCarrillo27/gifsApp",
+        "Permite ver la cantidad de población de un país y sus capitales, además de sus banderas y demás información de países.",
+      link: "https://santiagocarrillo27.github.io/CountryApp/",
       tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.TYPESCRIPT],
     },
     {
-        title: "CountryApp",
+        title: "BlackJack",
         description:
-          "Plataforma didáctica para la búsqueda de GIFS divertidos y modernos, con filtrado integrado, manejo de sesión, guardado de búsquedas anteriores y más.",
-        link: "https://santiagocarrillo27.github.io/gifsApp/",
-        github:"https://github.com/SantiagoCarrillo27/gifsApp",
-        tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.TYPESCRIPT],
+          "Juego web interactivo de cartas, donde te enfrentas a la computadora, con una baraja que lanza valores de cartas al azar y gana quién este más cerca de los 21 puntos.",
+        link: "https://santiagocarrillo27.github.io/BlackJack/",
+        tags: [TAGS.JAVASCRIPT, TAGS.BOOTSTRAP, TAGS.HTML],
       },
       {
-        title: "CountryApp",
+        title: "Clon Udemy",
         description:
           "Plataforma didáctica para la búsqueda de GIFS divertidos y modernos, con filtrado integrado, manejo de sesión, guardado de búsquedas anteriores y más.",
-        link: "https://santiagocarrillo27.github.io/gifsApp/",
-        github:"https://github.com/SantiagoCarrillo27/gifsApp",
-        tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.TYPESCRIPT],
+        link: "https://santiagocarrillo27.github.io/pagina-principal-udemy/",
+        tags: [TAGS.SASS, TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML],
       },
       {
-        title: "CountryApp",
+        title: "Muebles Twiligth",
         description:
-          "Plataforma didáctica para la búsqueda de GIFS divertidos y modernos, con filtrado integrado, manejo de sesión, guardado de búsquedas anteriores y más.",
-        link: "https://santiagocarrillo27.github.io/gifsApp/",
-        github:"https://github.com/SantiagoCarrillo27/gifsApp",
-        tags: [TAGS.ANGULAR, TAGS.BOOTSTRAP, TAGS.TYPESCRIPT],
+          "Página web de tienda de muebles, moderna y exclusiva, con multipágina y adaptada a dispositivos móviles.",
+        link: "https://santiagocarrillo27.github.io/tienda-mueble/",
+        tags: [TAGS.CSS, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.SASS],
       }
 
   ]

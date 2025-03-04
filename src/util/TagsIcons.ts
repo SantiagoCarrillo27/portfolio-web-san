@@ -6,6 +6,8 @@ import ANGULAR from "@icons/AngularIcon.astro";
 import BOOTSTRAP from "@icons/BootstrapIcon.astro";
 import MYSQL from "@icons/MysqlIcon.astro";
 import TYPESCRIPT from "@icons/TypeScript.astro";
+import HTML from "@icons/HTMLIcon.astro";
+import CSS from "@icons/CSSIcon.astro";
 
  export const TAGS = {
   PHP: {
@@ -43,6 +45,16 @@ import TYPESCRIPT from "@icons/TypeScript.astro";
     class: "",
     icon: TYPESCRIPT,
   },
+  HTML:{
+    name: "HTML",
+    class: "",
+    icon: HTML,
+  },
+  CSS:{
+    name: "CSS",
+    class: "",
+    icon: CSS,
+  }
 };
 
 

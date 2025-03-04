@@ -1,5 +1,5 @@
 ---
-import GitHub from "@icons/GitHub.astro";
+import GitHubIcon from "@icons/GitHub.astro";
 import Link from "@icons/UrlLinkIcon.astro";
 import LinkButton from "@components/LinkBtn.astro";
 
@@ -9,7 +9,7 @@ import {PROJECTS}  from '@util/ProjectsMain'
 
 ---
 
-<div class="flex flex-col gap-12 mt-14 mb-9">
+<div class="flex flex-col gap-10 mt-14 mb-10">
   {
     PROJECTS.map(({ image, title, description, tags, link, github }) => (
       <div class="grip gap-10">
@@ -46,7 +46,7 @@ import {PROJECTS}  from '@util/ProjectsMain'
               <footer class="flex items-end justify-start  gap-x-4">
           {github && (
             <LinkButton href={github}>
-              <GitHub class="size-4" />
+              <GitHubIcon class="size-4" />
               Code
               
             </LinkButton>
