@@ -1,7 +1,29 @@
 ---
+import GitHubIcon from "./icons/GitHub.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+import MailContactIcon from "./icons/MailContactIcon.astro";
+
 const currentYear = new Date().getFullYear();
 ---
 
-<div class="flex justify-center items-center">
-  <h1 class="text-gray-800 dark:text-white text-center p-4"> Santii ❤️ {currentYear}.</h1>
+<div class="flex justify-between items-center py-9 px-5">
+  <h1 class="text-gray-800 dark:text-white text-center p-4">
+    Santii🥷 <span>{currentYear}.</span>
+  </h1>
+
+  
+
+  <div class="flex justify-center items-center gap-x-6 [&>a]:text-gray-800 dark:[&>a]:text-white">
+
+    <a href="https://www.linkedin.com/in/santiagocarrillo27/" class="hover:scale-120 transition duration-300 ">
+      <LinkedInIcon class="size-5" />
+    </a>
+    <a href="mailto:santiagodev27@gmail.com" class="hover:scale-120 transition duration-300 ">
+      <MailContactIcon class="size-6" />
+    </a>
+
+    <a href="https://github.com/SantiagoCarrillo27" class="hover:scale-120 transition duration-300 ">
+      <GitHubIcon class="size-5" />
+    </a>
+  </div>
 </div>
