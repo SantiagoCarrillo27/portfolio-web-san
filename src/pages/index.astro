@@ -8,6 +8,7 @@ import TitleSection from "@components/TitleSection.astro";
 import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
 import ProjectSecondary from "@components/ProjectSecondary.astro";
+import GoToAction from "@components/GoToAction.astro";
 ---
 
 <Layout
@@ -19,11 +20,15 @@ import ProjectSecondary from "@components/ProjectSecondary.astro";
       <MainSection />
     </SectionContainerBase>
 
-    <SectionContainerBase id="experience">
+    <SectionContainerBase id="experience" class="mb-30">
       <TitleSection>
         Experiencia Laboral <BriefcaseIcon class="size-8" />
       </TitleSection>
       <Experience />
+    </SectionContainerBase>
+
+    <SectionContainerBase class="mb-27">
+      <GoToAction/>
     </SectionContainerBase>
 
     <SectionContainerBase id="proyectos">
@@ -33,9 +38,11 @@ import ProjectSecondary from "@components/ProjectSecondary.astro";
       <Projects />
     </SectionContainerBase>
 
-    <SectionContainerBase>
+    <SectionContainerBase class="mb-27">
       <ProjectSecondary/>
     </SectionContainerBase>
+
+
 
   </main>
 </Layout>

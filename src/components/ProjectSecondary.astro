@@ -5,14 +5,14 @@ import UrlIcon from "./icons/UrlIcon.astro";
 
 {
   (
-    <div class="grid md:grid-cols-2 gap-5 mb-10">
+    <div class="grid md:grid-cols-2 gap-5">
       {OTHER_PROJECTS.map(({ title, description, tags, link }, index) => (
         <a
           href={link}
           role="link"
           target="_blank"
           rel="noopener noreferrer"
-          class={`relative hover:[&>span]:opacity-100 shadow-sm hover:scale-103 transition-all duration-300 border border-gray-100 hover:ring-1 hover:ring-sky-200 rounded-xl p-7 flex flex-col justify-around dark:border-gray-700 dark:hover:ring-yellow-300 ${
+          class={`relative hover:[&>span]:opacity-100 shadow-sm hover:scale-103 transition-all duration-300 border border-gray-300 hover:ring-1 hover:ring-sky-200 rounded-xl p-7 flex flex-col justify-around dark:border-gray-700 dark:hover:ring-yellow-300 ${
             index % 4 === 0 || (index + 1) % 4 === 0
               ? "col-span-1"
               : "row-span-4"

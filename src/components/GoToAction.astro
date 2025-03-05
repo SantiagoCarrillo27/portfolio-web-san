@@ -1,0 +1,33 @@
+---
+import BaseLinkUrl from "./BaseLinkUrl.astro";
+import LinkedIn from "./icons/LinkedIn.astro";
+import MailContactIcon from "./icons/MailContactIcon.astro";
+---
+
+<div class="flex flex-col items-center gap-y-7 md:flex-row justify-center md:justify-between ">
+
+
+  <div class="flex flex-col gap-y-3 items-center md:items-start justify-center">
+    <h3 class=" text-3xl sm:text-4xl font-semibold text-gray-800 dark:text-white">
+      ¿Tienes algún proyecto?
+    </h3>
+    <p class="text-xl text-gray-800  dark:text-white">¡Trabajemos Juntos!</p>
+  </div>
+
+  <nav class="flex items-center gap-x-3">
+
+    <BaseLinkUrl href="https://www.linkedin.com/in/santiagocarrillo27/">
+
+    <LinkedIn class="size-4"/> LinkedIn
+  
+  </BaseLinkUrl>
+
+    <BaseLinkUrl href="mailto:santiagodev27@gmail.com">
+
+    <MailContactIcon class="size-5"/> Email 
+
+  </BaseLinkUrl>
+
+  </nav>
+
+</div>
