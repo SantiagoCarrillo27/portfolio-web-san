@@ -9,6 +9,8 @@ import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
 import ProjectSecondary from "@components/ProjectSecondary.astro";
 import GoToAction from "@components/GoToAction.astro";
+import AboutMe from "@components/AboutMe.astro";
+import AboutMeIcon from "@components/icons/AboutMeIcon.astro";
 ---
 
 <Layout
@@ -38,10 +40,16 @@ import GoToAction from "@components/GoToAction.astro";
       <Projects />
     </SectionContainerBase>
 
-    <SectionContainerBase class="mb-10">
+    <SectionContainerBase class="mb-19">
       <ProjectSecondary/>
     </SectionContainerBase>
 
+    <SectionContainerBase>
+      <TitleSection>
+        Sobre Mí <AboutMeIcon class="size-8"/>
+      </TitleSection>
+      <AboutMe/>
+    </SectionContainerBase>
 
 
   </main>
