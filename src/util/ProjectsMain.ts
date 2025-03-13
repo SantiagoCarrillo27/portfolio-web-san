@@ -9,7 +9,7 @@ export const PROJECTS = [
       title: "BeautyBook",
       description:
         "App web para el agendamiento de citas. Autenticación y confirmación via Email, gestión de servicios, roles de cliente y admin, manejo de horarios y más.  ",
-      link: "https://google.com",
+      link: "https://beautybookdev.alwaysdata.net/",
       image: "/projects/image.webp",
       tags: [TAGS.PHP, TAGS.SASS, TAGS.JAVASCRIPT,TAGS.MYSQL],
     },
