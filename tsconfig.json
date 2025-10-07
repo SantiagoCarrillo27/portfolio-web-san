@@ -1,18 +1,29 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
-  // Configurar rutas más fáciles y no relativas
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*" : ["src/components/*"],
-      "@layouts/*" : ["src/layouts/*"],
-      "@icons/*" : ["src/components/icons/*"],
-      "@util/*" : ["src/util/*"],
-      // "@lib/*" : ["src/lib/*"], Para librerías para llamadas a APIS Y COSAS ASÍ.
-
-
-    }
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@icons/*": [
+        "src/components/icons/*"
+      ],
+      "@util/*": [
+        "src/util/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

@@ -1,16 +1,32 @@
 ---
 const altImageProfile =
   "Imagen de Santiago carrillo, desarrollador web de aplicaciones únicas";
+import ProfileCard from "./ProfileCard";
 ---
 
 <article
   class="mt-10 md:mt-7 mb-8 flex flex-col items-center gap-y-10 md:flex-row justify-center gap-x-7"
 >
-  <img
+  <!-- <img
     loading="lazy"
     src="/profile.webp"
     alt={altImageProfile}
     class="md:order-2 w-60 md:w-64 h-full rounded-full object-center object-cover shadow-2xl ring-2 ring-sky-800 dark:ring-gray-400"
+  /> -->
+
+  <ProfileCard
+    client:visible
+    className="md:order-2"
+    name="Santiago C."
+    title="Software Engineer"
+    handle="XantiDev"
+    status="Online"
+    contactText="Contact Me"
+    avatarUrl="/profile-sbg.webp"
+    showUserInfo={true}
+    enableTilt={true}
+    enableMobileTilt={false}
+    onContactClick={() => console.log("Contact clicked")}
   />
 
   <div
