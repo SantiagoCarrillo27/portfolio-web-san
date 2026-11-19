@@ -25,16 +25,17 @@ export const ui = {
 
     "cta.title": "¿Tienes algún proyecto?",
     "cta.subtitle": "¡Trabajemos Juntos!",
+    "cta.mail": "Correo",
 
     "projects.imageAlt": "Imagen proyecto personal realizado",
-    "projects.code": "Code",
-    "projects.preview": "Preview",
+    "projects.code": "Código",
+    "projects.preview": "Vista previa",
 
     "about.imageAlt":
       "Imagen de Santiago carrillo, desarrollador web de aplicaciones únicas",
-    "about.cardTitle": "Software Engineer",
-    "about.cardStatus": "Online",
-    "about.cardContact": "Contact Me",
+    "about.cardTitle": "Ingeniero de Sistemas",
+    "about.cardStatus": "En línea",
+    "about.cardContact": "Contáctame",
 
     "footer.linkedin": "Perfil de LinkedIn de Santiago Carrillo",
     "footer.mail": "Enviar un correo a Santiago Carrillo",
@@ -59,6 +60,7 @@ export const ui = {
 
     "cta.title": "Have a project in mind?",
     "cta.subtitle": "Let's work together!",
+    "cta.mail": "Mail",
 
     "projects.imageAlt": "Screenshot of a personal project",
     "projects.code": "Code",
