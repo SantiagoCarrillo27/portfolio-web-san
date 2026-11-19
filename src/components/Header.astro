@@ -1,11 +1,18 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguagePicker from "./LanguagePicker.astro";
+
+interface Props {
+  showLogo?: boolean;
+}
+
+const { showLogo = true } = Astro.props;
 ---
 
 <header
   class="sticky top-0 flex justify-between items-center bg-opacity-80 dark:bg-opacity-80 backdrop-blur-lg px-6 md:px-5 py-2 z-50"
 >
+  {showLogo ? (
   <div
     id="logoText"
     class="flex items-center justify-center gap-x-3 translate-y-15 opacity-0 transition-all duration-300"
@@ -25,6 +32,7 @@ import LanguagePicker from "./LanguagePicker.astro";
       Santiago <span class="hidden md:inline">Carrillo</span><span class="md:hidden">C.</span>
     </h1>
   </div>
+  ) : <div />}
 
   <nav class="flex items-center justify-end">
     <LanguagePicker />

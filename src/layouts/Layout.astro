@@ -9,9 +9,10 @@ import { languages, defaultLang } from "@i18n/ui";
 interface Props {
   title: string;
   description: string;
+  showLogo?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, showLogo = true } = Astro.props;
 const lang = getLang(Astro);
 // hreflang necesita URLs absolutas: solo se emite si `site` está definido en astro.config.mjs
 const base = Astro.site;
@@ -61,7 +62,7 @@ const base = Astro.site;
     <!-- min-h-dvh grid grid-rows-[auto_1fr_auto] PARA USAR CON GRID -->
 
     <div class="max-w-4xl mx-auto min-h-dvh flex flex-col justify-between">
-      <Header />
+      <Header showLogo={showLogo} />
       <slot />
       <Footer />
     </div>
