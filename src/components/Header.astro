@@ -38,7 +38,8 @@ import LanguagePicker from "./LanguagePicker.astro";
   document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
       if (logoText) {
-        if (window.scrollY > 310) {
+        const threshold = window.matchMedia("(min-width: 768px)").matches ? 310 : 150;
+        if (window.scrollY > threshold) {
           logoText.classList.remove("translate-y-15", "opacity-0");
         } else {
           logoText.classList.add("translate-y-15", "opacity-0");
