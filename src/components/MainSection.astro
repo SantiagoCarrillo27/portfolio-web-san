@@ -1,7 +1,6 @@
 ---
 import Decoration from "@components/Decoration.astro";
 import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
-import LogoProfile from "@components/LogoProfile.astro";
 import { getLang, useTranslations } from "@i18n/utils";
 
 const lang = getLang(Astro);
@@ -9,9 +8,15 @@ const t = useTranslations(lang);
 ---
 
 <main class="flex flex-col md:flex-row items-center md:justify-start gap-7 mb-23 md:mb-32 md:mt-19 transition-discrete">
-  <LogoProfile
-    class=" w-50 md:w-150 bg-sky-100 rounded-full border-6 border-white shadow-xl dark:border-gray-900/80 dark:bg-gray-700/60"
-  />
+  <div
+    class="w-32 md:w-64 shrink-0 aspect-square overflow-hidden bg-sky-100 rounded-full border-6 border-white shadow-xl dark:border-gray-900/80 dark:bg-gray-700/60"
+  >
+    <img
+      src="/card/Avatar_xantidev_nobg.png"
+      alt="xantidev"
+      class="size-full object-cover"
+    />
+  </div>
 
   <div class="flex items-center md:items-start md:justify-start flex-col gap-6 md:gap-3">
     <h1
