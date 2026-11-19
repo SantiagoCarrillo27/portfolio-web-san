@@ -15,7 +15,6 @@ const options = (Object.keys(languages) as Lang[]).map((code) => ({
   Flag: flags[code],
   active: code === current,
 }));
-const CurrentFlag = flags[current];
 ---
 
 <!-- Selector de idioma: <details> funciona sin JS; el script solo cierra el menú al hacer clic fuera o con Escape -->
@@ -24,8 +23,14 @@ const CurrentFlag = flags[current];
     aria-label={t("lang.label")}
     class="flex items-center gap-x-1.5 cursor-pointer select-none list-none rounded-lg px-2.5 py-2.5 text-sm font-semibold uppercase leading-5 text-gray-800 bg-sky-100 hover:bg-sky-200 dark:text-white dark:bg-gray-700/60 dark:hover:bg-gray-700 transition-colors duration-300 [&::-webkit-details-marker]:hidden"
   >
-    <CurrentFlag class="size-5 rounded-sm shadow-sm" />
-    <span class="hidden sm:inline">{current}</span>
+    {
+      options.map(({ code, Flag }) => (
+        <span data-flag={code} hidden={code !== current} class="contents">
+          <Flag class="size-5 rounded-sm shadow-sm" />
+        </span>
+      ))
+    }
+    <span data-lang-code class="hidden sm:inline">{current}</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
@@ -52,11 +57,7 @@ const CurrentFlag = flags[current];
             lang={code}
             title={label}
             aria-current={active ? "page" : undefined}
-            class={`flex items-center gap-x-2 rounded-md px-2.5 py-2 text-sm font-semibold uppercase transition-colors ${
-              active
-                ? "bg-sky-100 text-sky-800 dark:bg-gray-700 dark:text-yellow-300"
-                : "text-gray-800 hover:bg-sky-50 dark:text-white dark:hover:bg-gray-800"
-            }`}
+            class="flex items-center gap-x-2 rounded-md px-2.5 py-2 text-sm font-semibold uppercase transition-colors text-gray-800 hover:bg-sky-50 dark:text-white dark:hover:bg-gray-800 aria-[current=page]:bg-sky-100 aria-[current=page]:text-sky-800 dark:aria-[current=page]:bg-gray-700 dark:aria-[current=page]:text-yellow-300"
           >
             <Flag class="size-5 rounded-sm shadow-sm" />
             {code}
@@ -71,6 +72,18 @@ const CurrentFlag = flags[current];
   const picker = document.getElementById("lang-picker") as HTMLDetailsElement | null;
 
   if (picker) {
+    // En el 404 estático el HTML es siempre español: sincroniza el selector con la ruta.
+    const lang = /^\/en(\/|$)/.test(location.pathname) ? "en" : "es";
+    picker.querySelectorAll<HTMLElement>("[data-flag]").forEach((el) => {
+      el.hidden = el.dataset.flag !== lang;
+    });
+    const codeEl = picker.querySelector("[data-lang-code]");
+    if (codeEl) codeEl.textContent = lang;
+    picker.querySelectorAll<HTMLAnchorElement>("a[hreflang]").forEach((a) => {
+      if (a.hreflang === lang) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+
     document.addEventListener("click", (event) => {
       if (picker.open && !picker.contains(event.target as Node)) {
         picker.open = false;
