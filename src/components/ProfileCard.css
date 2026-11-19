@@ -368,7 +368,6 @@
     0.1px
   ) !important;
   z-index: 5;
-  mix-blend-mode: luminosity;
 }
 
 .pc-details {

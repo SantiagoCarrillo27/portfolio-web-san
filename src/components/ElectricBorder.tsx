@@ -75,10 +75,11 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
 
     const filterEl = svg.querySelector<SVGFilterElement>(`#${CSS.escape(filterId)}`);
     if (filterEl) {
-      filterEl.setAttribute('x', '-200%');
-      filterEl.setAttribute('y', '-200%');
-      filterEl.setAttribute('width', '500%');
-      filterEl.setAttribute('height', '500%');
+      // -100%/300% cubre el desplazamiento máximo del ruido (alto/ancho del elemento)
+      filterEl.setAttribute('x', '-100%');
+      filterEl.setAttribute('y', '-100%');
+      filterEl.setAttribute('width', '300%');
+      filterEl.setAttribute('height', '300%');
     }
 
     requestAnimationFrame(() => {
@@ -102,6 +103,24 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
     ro.observe(rootRef.current);
     updateAnim();
     return () => ro.disconnect();
+  }, []);
+
+  // Pausa la animación SMIL solo cuando el efecto no está en pantalla
+  useEffect(() => {
+    const host = rootRef.current;
+    const svg = svgRef.current;
+    if (!host || !svg || typeof IntersectionObserver === 'undefined') return;
+
+    const io = new IntersectionObserver(entries => {
+      const visible = entries[entries.length - 1].isIntersecting;
+      if (visible) svg.unpauseAnimations();
+      else svg.pauseAnimations();
+    });
+    io.observe(host);
+    return () => {
+      io.disconnect();
+      svg.unpauseAnimations();
+    };
   }, []);
 
   const inheritRadius: CSSProperties = {
@@ -152,23 +171,22 @@ const ElectricBorder: React.FC<ElectricBorderProps> = ({
       >
         <defs>
           <filter id={filterId} colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+            {/* Solo 2 feTurbulence (antes 4, con seeds duplicadas) y 4 octavas (antes 10) */}
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="4" result="noiseV" seed="1" />
+            <feOffset in="noiseV" dx="0" dy="0" result="offsetNoise1">
               <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
             </feOffset>
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+            <feOffset in="noiseV" dx="0" dy="0" result="offsetNoise2">
               <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
             </feOffset>
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
-            <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="4" result="noiseH" seed="2" />
+            <feOffset in="noiseH" dx="0" dy="0" result="offsetNoise3">
               <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
             </feOffset>
 
-            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
-            <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+            <feOffset in="noiseH" dx="0" dy="0" result="offsetNoise4">
               <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
             </feOffset>
 
