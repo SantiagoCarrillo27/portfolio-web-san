@@ -2,6 +2,10 @@
 import Decoration from "@components/Decoration.astro";
 import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
 import LogoProfile from "@components/LogoProfile.astro";
+import { getLang, useTranslations } from "@i18n/utils";
+
+const lang = getLang(Astro);
+const t = useTranslations(lang);
 ---
 
 <main class="flex flex-col md:flex-row items-center md:justify-start gap-7 mb-23 md:mb-32 md:mt-19 transition-discrete">
@@ -19,10 +23,21 @@ import LogoProfile from "@components/LogoProfile.astro";
     <p
       class="text-pretty text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-sky-800 [&>strong]:font-semibold dark:text-gray-300"
     >
-       +2 años de experiencia. <strong
-        >Ingeniero de Sistemas <small>(5º año)</small> y Desarrollador de
-        Aplicaciones Web <small>(FP)</small></strong>, de Colombia, <small>CO</small>. Experto en la creación de
-      experiencias web innovadoras y funcionales.
+      {lang === "en" ? (
+        <Fragment>
+          2+ years of experience. <strong
+            >Systems Engineer <small>(5th year)</small> and Web
+            Application Developer <small>(VET)</small></strong>, from Colombia, <small>CO</small>. Expert in
+          building innovative and functional web experiences.
+        </Fragment>
+      ) : (
+        <Fragment>
+          +2 años de experiencia. <strong
+            >Ingeniero de Sistemas <small>(5º año)</small> y Desarrollador de
+            Aplicaciones Web <small>(FP)</small></strong>, de Colombia, <small>CO</small>. Experto en la creación de
+          experiencias web innovadoras y funcionales.
+        </Fragment>
+      )}
     </p>
 
     <a
@@ -32,7 +47,7 @@ import LogoProfile from "@components/LogoProfile.astro";
       class="flex items-center transition-all md:justify-start md:hover:scale-105 w-fit"
     >
       <Decoration
-        >Disponible ahora<BriefcaseIcon class="size-6 pl-1" /></Decoration
+        >{t("main.available")}<BriefcaseIcon class="size-6 pl-1" /></Decoration
       >
     </a>
   </div>

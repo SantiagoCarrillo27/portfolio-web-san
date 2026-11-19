@@ -1,38 +1,23 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-const EXPERIENCE = [
-  {
-    date: "Septiembre 2025 - Actualmente ",
-    title: "Centers Developer",
-    company: "NTT DATA Europe",
-    description:
-      "Actualmente apoyo al equipo de integración de BBVA, participando en el diseño y desarrollo de microservicios con Java y Spring Boot. Mi trabajo se centra en garantizar la interoperabilidad de sistemas críticos, contribuyendo a la estabilidad, seguridad y escalabilidad de las soluciones bancarias.",
-    link: "https://www.linkedin.com/in/santiagocarrillo27/",
-  },
-  {
-    date: "Junio 2023 - Diciembre 2024 ",
-    title: "Desarrollador Junior Foundation",
-    company: "ExcelCredit S.A",
-    description:
-      "Contribuí a la estabilidad y seguridad de las aplicaciones internas de la compañía, corrigiendo errores en producción y optimizando su rendimiento. Además, implementé mejoras clave que redujeron en un 45% los tickets de soporte de TI.",
-    link: "https://www.linkedin.com/in/santiagocarrillo27/",
-  },
-  {
-    date: "Noviembre 2022 - Mayo 2023",
-    title: "Practicante Desarrollo de Software",
-    company: "ExcelCredit S.A",
-    description:
-      "Apoyé la implementación de un visor documental para la gestión de información de clientes y créditos solicitados. Además, brindé soporte técnico desde el área de desarrollo, contribuyendo a la estabilidad y mejora de las aplicaciones internas de la compañía.",
-  },
-]
+import { EXPERIENCE } from "@util/Experience";
+import { getLang } from "@i18n/utils";
 
+const lang = getLang(Astro);
 ---
 
 <ol class="relative mt-14 mb-20">
   {
-    EXPERIENCE.map((experience, index) => (
+    EXPERIENCE.map(({ date, title, company, description, link }, index) => (
       <li class="">
-        <ExperienceItem {...experience} isLatest = {index === 0} />
+        <ExperienceItem
+          date={date[lang]}
+          title={title[lang]}
+          company={company}
+          description={description[lang]}
+          link={link}
+          isLatest={index === 0}
+        />
       </li>
     ))
   }

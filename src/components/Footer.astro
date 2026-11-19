@@ -2,7 +2,9 @@
 import GitHubIcon from "./icons/GitHub.astro";
 import LinkedInIcon from "./icons/LinkedIn.astro";
 import MailContactIcon from "./icons/MailContactIcon.astro";
+import { getLang, useTranslations } from "@i18n/utils";
 
+const t = useTranslations(getLang(Astro));
 const currentYear = new Date().getFullYear();
 ---
 
@@ -21,7 +23,7 @@ const currentYear = new Date().getFullYear();
       class="hover:scale-120 transition duration-300"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Perfil de LinkedIn de Santiago Carrillo"
+      aria-label={t("footer.linkedin")}
     >
       <LinkedInIcon class="size-5" />
     </a>
@@ -29,7 +31,7 @@ const currentYear = new Date().getFullYear();
       href="mailto:santiagodev27@gmail.com"
       class="hover:scale-120 transition duration-300"
       rel="noopener noreferrer"
-      aria-label="Enviar un correo a Santiago Carrillo"
+      aria-label={t("footer.mail")}
     >
       <MailContactIcon class="size-6" />
     </a>
@@ -38,7 +40,7 @@ const currentYear = new Date().getFullYear();
       href="https://github.com/SantiagoCarrillo27"
       class="hover:scale-120 transition duration-300"
       rel="noopener noreferrer"
-      aria-label="Perfil de GitHub de Santiago Carrillo"
+      aria-label={t("footer.github")}
     >
       <GitHubIcon class="size-5" />
     <a/>

@@ -1,0 +1,54 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MainSection from "@components/MainSection.astro";
+import SectionContainerBase from "@components/SectionContainerBase.astro";
+import Experience from "@components/Experience.astro";
+import Projects from "@components/Projects.astro";
+import TitleSection from "@components/TitleSection.astro";
+import BriefcaseIcon from "@components/icons/BriefcaseIcon.astro";
+import ProjectsIcon from "@components/icons/ProjectsIcon.astro";
+import ProjectSecondary from "@components/ProjectSecondary.astro";
+import GoToAction from "@components/GoToAction.astro";
+import AboutMe from "@components/AboutMe.astro";
+import AboutMeIcon from "@components/icons/AboutMeIcon.astro";
+import { getLang, useTranslations } from "@i18n/utils";
+
+const t = useTranslations(getLang(Astro));
+---
+
+<Layout title={t("meta.title")} description={t("meta.description")}>
+  <main class=" px-6 md:px-5 grow">
+    <SectionContainerBase id="main">
+      <MainSection />
+    </SectionContainerBase>
+
+    <SectionContainerBase id="experience" class="mb-30">
+      <TitleSection>
+        {t("section.experience")} <BriefcaseIcon class="size-8" />
+      </TitleSection>
+      <Experience />
+    </SectionContainerBase>
+
+    <SectionContainerBase class="mb-27">
+      <GoToAction/>
+    </SectionContainerBase>
+
+    <SectionContainerBase id="proyectos">
+      <TitleSection>
+        {t("section.projects")} <ProjectsIcon class="size-8" />
+      </TitleSection>
+      <Projects />
+    </SectionContainerBase>
+
+    <SectionContainerBase class="mb-19">
+      <ProjectSecondary/>
+    </SectionContainerBase>
+
+    <SectionContainerBase>
+      <TitleSection>
+        {t("section.about")} <AboutMeIcon class="size-8"/>
+      </TitleSection>
+      <AboutMe/>
+    </SectionContainerBase>
+  </main>
+</Layout>

@@ -5,7 +5,10 @@ import LinkButton from "@components/LinkBtn.astro";
 
 // ACÁ SE ENCUENTRAN LOS PROYECTOS PRINCIPALES Y LOS SECUNDARIOS, SE SEPARA LÓGICA EN UN TS
 import {PROJECTS}  from '@util/ProjectsMain'
+import { getLang, useTranslations } from "@i18n/utils";
 
+const lang = getLang(Astro);
+const t = useTranslations(lang);
 
 ---
 
@@ -16,7 +19,7 @@ import {PROJECTS}  from '@util/ProjectsMain'
         <article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
           <a href={link} class="block" rel="noreferrer noopener" target="_blank">
             <figure class=" h-full shadow-xl relative rounded-xl overflow-hidden flex bg-sky-100 dark:bg-gray-700/50">
-              <img class="object-cover rounded-lg duration-700 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7" src={image} alt="Imagen proyecto personal realizado" />
+              <img class="object-cover rounded-lg duration-700 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7" src={image} alt={t("projects.imageAlt")} />
             </figure>
           </a>
 
@@ -26,7 +29,7 @@ import {PROJECTS}  from '@util/ProjectsMain'
               {title}
             </h3>
 
-            <p class="text-slate-600 dark:text-slate-300 text-base">{description}</p>
+            <p class="text-slate-600 dark:text-slate-300 text-base">{description[lang]}</p>
 
             <div class="flex gap-3 items-center mb-1">
               {tags.map((tag) => (
@@ -47,14 +50,14 @@ import {PROJECTS}  from '@util/ProjectsMain'
           {github && (
             <LinkButton href={github}>
               <GitHubIcon class="size-4" />
-              Code
-              
+              {t("projects.code")}
+
             </LinkButton>
           )}
           {link && (
             <LinkButton href={link}>
               <Link class="size-4" />
-              Preview
+              {t("projects.preview")}
             </LinkButton>
           )}
         </footer>

@@ -1,10 +1,11 @@
 ---
 import LogoProfile from "./LogoProfile.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguagePicker from "./LanguagePicker.astro";
 ---
 
 <header
-  class="sticky top-0 flex justify-between items-center bg-opacity-80 dark:bg-opacity-80 backdrop-blur-lg overflow-hidden px-6 md:px-5 py-2 z-50"
+  class="sticky top-0 flex justify-between items-center bg-opacity-80 dark:bg-opacity-80 backdrop-blur-lg overflow-x-clip px-6 md:px-5 py-2 z-50"
 >
   <div
     id="logoText"
@@ -20,7 +21,8 @@ import ThemeToggle from "./ThemeToggle.astro";
     </h1>
   </div>
 
-  <nav class="flex justify-end">
+  <nav class="flex items-center justify-end">
+    <LanguagePicker />
     <ThemeToggle />
   </nav>
 </header>

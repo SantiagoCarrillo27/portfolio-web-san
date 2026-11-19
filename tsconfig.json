@@ -8,19 +8,21 @@
     "dist"
   ],
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@layouts/*": [
-        "src/layouts/*"
+        "./src/layouts/*"
       ],
       "@icons/*": [
-        "src/components/icons/*"
+        "./src/components/icons/*"
       ],
       "@util/*": [
-        "src/util/*"
+        "./src/util/*"
+      ],
+      "@i18n/*": [
+        "./src/i18n/*"
       ]
     },
     "jsx": "react-jsx",
