@@ -5,12 +5,14 @@ import { fileURLToPath } from 'node:url';
 import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // Resuelve una ruta relativa a la raíz del proyecto
 const fromRoot = (/** @type {string} */ path) => fileURLToPath(new URL(path, import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://santiagocs.vercel.app',
   vite: {
     plugins: [tailwindcss()],
     // Mismos alias que tsconfig.json "paths" (sin baseUrl, que está en desuso).
@@ -26,7 +28,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+      i18n: { defaultLocale: 'es', locales: { es: 'es', en: 'en' } },
+    }),
+  ],
 
   i18n: {
     defaultLocale: 'es',

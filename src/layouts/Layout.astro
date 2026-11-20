@@ -10,12 +10,29 @@ interface Props {
   title: string;
   description: string;
   showLogo?: boolean;
+  noindex?: boolean;
 }
 
-const { title, description, showLogo = true } = Astro.props;
+const { title, description, showLogo = true, noindex = false } = Astro.props;
 const lang = getLang(Astro);
 // hreflang necesita URLs absolutas: solo se emite si `site` está definido en astro.config.mjs
 const base = Astro.site;
+const canonical = base ? new URL(Astro.url.pathname, base).href : undefined;
+const ogImage = base ? new URL("/profile.webp", base).href : undefined;
+const ogLocale = lang === "es" ? "es_ES" : "en_US";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Santiago Carrillo",
+  url: base?.href,
+  image: ogImage,
+  jobTitle: lang === "es" ? "Desarrollador Web" : "Web Developer",
+  description,
+  sameAs: [
+    "https://www.linkedin.com/in/santiagocarrillo27/",
+    "https://github.com/SantiagoCarrillo27",
+  ],
+};
 ---
 
 <!doctype html>
@@ -42,7 +59,21 @@ const base = Astro.site;
         />
       )
     }
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Santiago Carrillo" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={ogLocale} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    {!noindex && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />

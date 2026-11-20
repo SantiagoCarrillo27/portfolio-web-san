@@ -10,7 +10,7 @@ export const defaultLang: Lang = "es";
 export const ui = {
   es: {
     "meta.title":
-      "Porfolio de Santiago CS - Desarrollador y Programador Web con +2 años de experiencia",
+      "Portfolio de Santiago Carrillo - Desarrollador Web con +3 años de experiencia",
     "meta.description":
       "Contrata a Santiago Carrillo para crear tu aplicación o página web. Programador Web y Desarrollador de Software. Experto en la creación de experiencias web innovadoras y funcionales.",
 
@@ -45,7 +45,7 @@ export const ui = {
   },
   en: {
     "meta.title":
-      "Santiago CS Portfolio - Web Developer & Programmer with 2+ years of experience",
+      "Santiago Carrillo Portfolio - Web Developer with 3+ years of experience",
     "meta.description":
       "Hire Santiago Carrillo to build your application or website. Web Developer and Software Engineer. Expert in creating innovative and functional web experiences.",
 
