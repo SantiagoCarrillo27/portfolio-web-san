@@ -22,8 +22,8 @@ export const EXPERIENCE: ExperienceEntry[] = [
     },
     company: "NTT DATA Europe",
     description: {
-      es: "Actualmente apoyo al equipo de integración de BBVA, participando en el diseño y desarrollo de microservicios con Java y Spring Boot. Mi trabajo se centra en garantizar la interoperabilidad de sistemas críticos, contribuyendo a la estabilidad, seguridad y escalabilidad de las soluciones bancarias.",
-      en: "I currently support BBVA's integration team, taking part in the design and development of microservices with Java and Spring Boot. My work focuses on ensuring interoperability between critical systems, contributing to the stability, security and scalability of banking solutions.",
+      es: "Desarrollo e integración del módulo operativo de Brasil en BBVA Pivot Net, plataforma global de tesorería y pagos transfronterizos para clientes corporativos, con Java, Spring Boot y Angular sobre los frameworks corporativos ASO y APX. Optimizo flujos transaccionales y resuelvo incidencias críticas en producción bajo SLA bancarios.",
+      en: "Development and integration of the Brazil operational module in BBVA Pivot Net, a global treasury and cross-border payments platform for corporate clients, using Java, Spring Boot and Angular on the corporate ASO and APX frameworks. I optimize transactional flows and resolve critical production incidents under banking SLAs.",
     },
     link: "https://www.linkedin.com/in/santiagocarrillo27/",
   },
@@ -38,8 +38,8 @@ export const EXPERIENCE: ExperienceEntry[] = [
     },
     company: "ExcelCredit S.A",
     description: {
-      es: "Contribuí a la estabilidad y seguridad de las aplicaciones internas de la compañía, corrigiendo errores en producción y optimizando su rendimiento. Además, implementé mejoras clave que redujeron en un 45% los tickets de soporte de TI.",
-      en: "I contributed to the stability and security of the company's internal applications by fixing production bugs and optimizing performance. I also implemented key improvements that reduced IT support tickets by 45%.",
+      es: "Desarrollo de aplicaciones internas de gestión de créditos con Java, Spring Boot y Angular, y participación en microservicios para mejorar su escalabilidad y mantenimiento. Implementé pipelines CI/CD en Jenkins que redujeron los tiempos de despliegue en un 80% y reduje el tiempo medio de respuesta ante incidentes críticos en producción de 2 horas a 20 minutos.",
+      en: "Development of internal credit management applications with Java, Spring Boot and Angular, and contribution to microservices to improve their scalability and maintainability. I implemented CI/CD pipelines in Jenkins that cut deployment times by 80%, and reduced the mean response time to critical production incidents from 2 hours to 20 minutes.",
     },
     link: "https://www.linkedin.com/in/santiagocarrillo27/",
   },
@@ -54,8 +54,8 @@ export const EXPERIENCE: ExperienceEntry[] = [
     },
     company: "ExcelCredit S.A",
     description: {
-      es: "Apoyé la implementación de un visor documental para la gestión de información de clientes y créditos solicitados. Además, brindé soporte técnico desde el área de desarrollo, contribuyendo a la estabilidad y mejora de las aplicaciones internas de la compañía.",
-      en: "I supported the implementation of a document viewer for managing customer information and requested loans. I also provided technical support from the development team, contributing to the stability and improvement of the company's internal applications.",
+      es: "Participé en el proyecto BPM de gestión de créditos simplificando procesos y documentando las nuevas funcionalidades. Resolví tickets de causa raíz junto con Mesa de Ayuda y desarrollé una plataforma unificada para RRHH que permitía consultar a Compliance cada candidato a un puesto.",
+      en: "I took part in the BPM credit management project, simplifying processes and documenting new features. I resolved root-cause tickets together with the Help Desk and built a unified HR platform that allowed Compliance to be consulted on each candidate for a position.",
     },
   },
 ];
